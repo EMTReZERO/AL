@@ -118,4 +118,18 @@ int main()
 {
   FILE *fptr;
   fptr=fopen("1.txt","r");
+  if(fptr==NULL)
+  {
+    cout<<"xxx";
+    return 0;
+  }
+  int arr[100]={0};
+  int i=0;
+  while (fscanf(fptr, "%d", &arr[i]) != EOF) 
+  {
+    i++;     
+  }
+  struct max max=fms(arr,0,i-1);
+  cout<<max.leftmax<<"\n"<<max.rightmax<<"\n"<<max.sum;
+  return 0;
 }
